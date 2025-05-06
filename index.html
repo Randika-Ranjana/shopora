@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopora - Your Favorite Online Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Shopora</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" id="home-link">Home</a></li>
+                    <li><a href="#" id="products-link">Products</a></li>
+                    <li><a href="#" id="cart-link">Cart <span id="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner-slider">
+        <div class="banner-card active">Shop Smart, Live Better!</div>
+        <div class="banner-card">Deals You Can’t Miss!</div>
+        <div class="banner-card">Trendy. Fast. Affordable.</div>
+      </section>
+      
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home-section">
+            <div class="hero">
+                <h2>Welcome to Shopora</h2>
+                <p>Discover amazing products at unbeatable prices</p>
+                <button id="shop-now-btn">Shop Now</button>
+            </div>
+            <div class="featured-categories">
+                <h3>Shop by Category</h3>
+                <div class="categories-grid">
+                    <div class="category-card" data-category="electronics">
+                        <i class="fas fa-laptop"></i>
+                        <h4>Electronics</h4>
+                    </div>
+                    <div class="category-card" data-category="clothing">
+                        <i class="fas fa-tshirt"></i>
+                        <h4>Clothing</h4>
+                    </div>
+                    <div class="category-card" data-category="home">
+                        <i class="fas fa-home"></i>
+                        <h4>Home & Garden</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products-section" class="hidden">
+            <h2>Our Products</h2>
+            <div class="filter-controls">
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="home">Home & Garden</option>
+                </select>
+                <input type="text" id="search-box" placeholder="Search products...">
+            </div>
+            <div class="products-grid" id="products-container">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart-section" class="hidden">
+            <h2>Your Shopping Cart</h2>
+            <div class="cart-container">
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be loaded here by JavaScript -->
+                </div>
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-details">
+                        <p>Subtotal: <span id="subtotal">LKR 0.00</span></p>
+                        <p>Shipping: <span id="shipping">LKR 500.00</span></p>
+                        <p>Tax: <span id="tax">LKR 0.00</span></p>
+                        <p class="total">Total: <span id="total">LKR 500.00</span></p>
+                    </div>
+                    <button id="checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout Section -->
+        <section id="checkout-section" class="hidden">
+            <h2>Checkout</h2>
+            <div class="checkout-container">
+                <form id="checkout-form">
+                    <div class="form-section">
+                        <h3>Shipping Information</h3>
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zip">ZIP Code</label>
+                            <input type="text" id="zip" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Payment Method</h3>
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="credit" checked>
+                                <i class="fab fa-cc-visa"></i> Credit Card
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="paypal">
+                                <i class="fab fa-paypal"></i> PayPal
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="applepay">
+                                <i class="fab fa-apple-pay"></i> Apple Pay
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cod">
+                                <i class="fas fa-money-bill-wave"></i> Cash on Delivery
+                            </label>
+                        </div>
+                    
+                        <div id="credit-card-info">
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <button type="submit" id="place-order-btn">Place Order</button>
+                </form>
+                
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="order-items" id="checkout-items">
+                        <!-- Order items will be loaded here by JavaScript -->
+                    </div>
+                    <div class="order-totals">
+                        <p>Subtotal: <span id="checkout-subtotal">RS 0.00</span></p>
+                        <p>Shipping: <span id="checkout-shipping">LKR 500.00</span></p>
+                        <p>Tax: <span id="checkout-tax">LKR 0.00</span></p>
+                        <p class="total">Total: <span id="checkout-total">LKR 500.00</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Confirmation Section -->
+        <section id="confirmation-section" class="hidden">
+            <div class="confirmation-container">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Order Confirmed!</h2>
+                <p>Thank you for your purchase. Your order has been placed successfully.</p>
+                <p>An email confirmation has been sent to your registered email address.</p>
+                <button id="continue-shopping-btn">Continue Shopping</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Shopora</h3>
+                    <p>Your one-stop shop for all your needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@shopeasy.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ShopEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
