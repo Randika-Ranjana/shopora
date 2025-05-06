@@ -896,3 +896,32 @@ footer {
     }
   }
   
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    #cart-count {
+        margin-left: 8px;
+    }
+}
+
+/* Ensure viewport is properly set */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
